@@ -83,13 +83,7 @@ namespace BinaryToTCDecoder
                 {
                     prepArr[j] = (byte)file.ReadByte();
                 }
-                var barr = new BitArray(prepArr);
-                Reverse(barr);
-                var bstr = "0b";
-                for (var j = 0; j < barr.Count; j++)
-                {
-                    bstr += barr.Get(j) ? "1" : "0";
-                }
+                var bstr = "0x" + Convert.ToHexString(prepArr);
                 bstr += "\n";
                 Console.Write(bstr);
                 var bbstr = Encoding.ASCII.GetBytes(bstr);
